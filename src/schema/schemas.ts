@@ -6,21 +6,13 @@ export const usernameValidationSchema = z
   .max(20, "username must be no more than 20 character")
   .regex(/^[a-zA-Z0-9_]+$/, "username should not include special character");
 
-export const signUpSchema = z
-  .object({
-    username: usernameValidationSchema,
-    email: z.string().email({ message: "Invalid email address" }),
-    password: z
-      .string()
-      .min(8, { message: "Password must be atleast 8 characters" }),
-    confirmPassword: z
-      .string()
-      .min(8, { message: "Password must be atleast 8 characters" }),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ["confirmPassword"],
-  });
+export const signUpSchema = z.object({
+  username: usernameValidationSchema,
+  email: z.string().email({ message: "Invalid email address" }),
+  password: z
+    .string()
+    .min(8, { message: "Password must be atleast 8 characters" }),
+});
 
 export const signInSchema = z.object({
   identifier: z.string(),

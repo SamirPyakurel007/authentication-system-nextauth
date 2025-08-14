@@ -19,6 +19,8 @@ export const signInSchema = z.object({
   password: z.string(),
 });
 
-export const verifySchema = z
-  .string()
-  .length(6, { message: "verification code must be 6 characters" });
+export const verifySchema = z.object({
+  code: z
+    .string()
+    .length(6, { message: "verification code must be 6 characters" }),
+});

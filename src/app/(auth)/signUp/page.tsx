@@ -149,7 +149,7 @@ const SignUp = () => {
                   Please wait...
                 </>
               ) : (
-                "Signup"
+                "Sign Up"
               )}
             </Button>
           </form>

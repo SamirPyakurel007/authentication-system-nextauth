@@ -60,7 +60,7 @@ export async function GET(request: Request) {
         message: "username is unique",
       },
       {
-        status: 400,
+        status: 200,
       }
     );
   } catch (err) {

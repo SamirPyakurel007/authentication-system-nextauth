@@ -74,7 +74,7 @@ const SignUp = () => {
       setIsSubmitting(false);
     } catch (error) {
       console.error("error is signup of user", error);
-      toast.error("error is signup of user");
+      toast.error("error in signup of user");
     }
     setIsSubmitting(false);
   };

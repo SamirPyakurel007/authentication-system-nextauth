@@ -25,6 +25,7 @@ import { Loader2 } from "lucide-react";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
   const [usernameMessage, setUsernameMessage] = useState("");
   const [isCheckingUsername, setIsCheckingUsername] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,6 +39,7 @@ const SignUp = () => {
       username: "",
       email: "",
       password: "",
+      role: "",
     },
   });
 
@@ -142,6 +144,21 @@ const SignUp = () => {
                 </FormItem>
               )}
             />
+
+            <FormField
+              control={form.control}
+              name="role"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Role</FormLabel>
+                  <FormControl>
+                    <Input placeholder="role" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>

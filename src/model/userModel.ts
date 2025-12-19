@@ -7,6 +7,7 @@ export interface User extends Document {
   verifyCode: string;
   verifyCodeExpiry: Date;
   isVerified: boolean;
+  role: string;
 }
 
 const userSchema: Schema<User> = new Schema({
@@ -36,6 +37,9 @@ const userSchema: Schema<User> = new Schema({
   isVerified: {
     type: Boolean,
     default: false,
+  },
+  role: {
+    type: String,
   },
 });
 

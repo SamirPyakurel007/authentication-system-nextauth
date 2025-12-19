@@ -6,7 +6,7 @@ import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
 export async function POST(request: Request) {
   await dbConnect();
   try {
-    const { username, email, password } = await request.json();
+    const { username, email, password, role } = await request.json();
 
     //1 existing user verified by username
     const existingUserByUsername = await UserModel.findOne({
@@ -62,6 +62,7 @@ export async function POST(request: Request) {
         verifyCode,
         verifyCodeExpiry: expiryDate,
         isVerified: false,
+        role,
       });
 
       await newUser.save();
